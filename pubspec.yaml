@@ -1,8 +1,7 @@
 name: smoothing
 description: A flutter package implemented moving average, exponential moving average, and SG filtering
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/JJack27/dart-smoothing
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
