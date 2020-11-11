@@ -1,14 +1,3 @@
-# smoothing
-
-A flutter package implemented moving average, exponential moving average, and SG filtering
-
-## Getting Started
-
-All methods supports list of `int` or `double`. Exceptions will throw if the data type is neither of them.
-
-## How to use
-
-```dart
 import 'package:smoothing/smoothing.dart';
 
 void main(){
@@ -38,4 +27,3 @@ void main(){
   List<double> result = filter.smooth(x);
 
 }
-```

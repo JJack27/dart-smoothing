@@ -99,13 +99,11 @@ class SgFilter{
     for(int i = 0; i < _size; i++){
       inputData.add(1);
     }
-    //print(inputData);
 
     // smoothing input data
     for(int i = _size; i < inputData.length - _size; i++){
       List<List<double>> tempWin = [inputData.sublist(i-_size, i+_size+1)];
       Matrix windowX = new Matrix(tempWin).transpose();
-      //print((_kernel * windowX));
       dataAfterSmooth.add((_kernel * windowX)[_size][0]);
     }
 
@@ -113,7 +111,18 @@ class SgFilter{
   }
 
 
+  /// getters
+  int get order{
+    return _order;
+  }
 
+  int get frameLength{
+    return _frameLength;
+  }
+
+  Matrix get kernel{
+    return _kernel;
+  }
 }
 
 
@@ -123,29 +132,26 @@ void main(){
   SgFilter filter = new SgFilter(3, 11);
   List<double> x = [
     0.954886430307147,
-        -0.601120319370960,
-        -1.17189080414528,
-        -0.577110307096737,
-        -0.836430524453065,
+    -0.601120319370960,
+    -1.17189080414528,
+    -0.577110307096737,
+    -0.836430524453065,
     0.852969530087173,
     0.477331178676579,
     0.302320074946896,
     0.415776190617897,
     0.0429748293046916,
-        -0.948853230057176,
+    -0.948853230057176,
     0.541608366255458,
-        -0.821128258718891,
-        -1.07190504844909,
-        -1.07409163637826,
+    -0.821128258718891,
+    -1.07190504844909,
+    -1.07409163637826,
     0.869552807313267,
     0.981051414525262,
-        -1.75882536913901,
-        -0.148095957567039,
+    -1.75882536913901,
+    -0.148095957567039,
     0.251941746175391,
   ];
-  print(filter.smooth(x));
-  print("====");
-  print(x.length);
-  print(filter.smooth(x).length);
+  List<double> result = filter.smooth(x);
 
 }
